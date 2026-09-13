@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-7bq-f#$o40&b61+reaemvgnko6j95!r9o$x%_5!7$gy8v@w%58
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin" # para pode rodar os videos do youtube
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
