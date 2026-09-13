@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://leoflixdjango-production.up.railway.app",
+]
 
 # Application definition
 
@@ -92,7 +95,7 @@ import os
 DATABASE_URL = os.getenv("DATABASE_URL")
 if DATABASE_URL:
     DATABASES = {
-        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
+        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
     }
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
