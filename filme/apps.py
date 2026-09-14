@@ -10,7 +10,7 @@ class FilmeConfig(AppConfig):
         import os
     
         email = os.getenv("EMAIL_ADMIN")
-        senha = os.getnev("SENHA_ADMIN")
+        senha = os.getenv("SENHA_ADMIN")
 
         usuarios = Usuario.object.filter(email=email)
         if not usuarios:
