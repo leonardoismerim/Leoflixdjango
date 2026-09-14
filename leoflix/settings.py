@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/6.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
-
+import os 
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,25 +20,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7bq-f#$o40&b61+reaemvgnko6j95!r9o$x%_5!7$gy8v@w%58'
+TOKEN_CSRF = os.getenv('TOKEN_CSRF')
+if TOKEN_CSRF:
+    SECRET_KEY =TOKEN_CSRF
+    CSRF_TRUSTED_ORIGINS = ['https://leoflixdjango-production.up.railway.app/']
+else:
+    SECRET_KEY = 'django-insecure-7bq-f#$o40&b61+reaemvgnko6j95!r9o$x%_5!7$gy8v@w%58'
+
+
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin" # para pode rodar os videos do youtube
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://leoflixdjango-production.up.railway.app/", "localhost", "127.0.0.1/"]
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://leoflixdjango-production.up.railway.app",
-]
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://leoflixdjango-production.up.railway.app',
-    'https://*.railway.app',
-    'http://leoflixdjango-production.up.railway.app',
-]
-
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 # Application definition
 
 INSTALLED_APPS = [
@@ -97,12 +94,12 @@ DATABASES = {
 }
 
 import dj_database_url 
-import os 
+
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 if DATABASE_URL:
     DATABASES = {
-        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
+        'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
     }
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
