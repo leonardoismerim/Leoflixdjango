@@ -1,1 +1,1 @@
-web: python manage.py migrate && python manage.py shell -c "from filme.models import Usuario; import os; Usuario.objects.filter(username='admin').exists() or Usuario.objects.create_superuser('admin', os.getenv('EMAIL_ADMIN'), os.getenv('SENHA_ADMIN'))" && gunicorn core.wsgi:application
+web: python manage.py migrate && gunicorn leoflix.wsgi --log-file -
