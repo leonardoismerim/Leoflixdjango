@@ -148,13 +148,6 @@ MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / "media"
 
-STORAGES = {
-    # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-} # para o arrumar o carregamento das fotos
-
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
