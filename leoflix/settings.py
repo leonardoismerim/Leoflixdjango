@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 TOKEN_CSRF = os.getenv('TOKEN_CSRF')
 if TOKEN_CSRF:
-    SECRET_KEY =TOKEN_CSRF
+    SECRET_KEY = TOKEN_CSRF
     CSRF_TRUSTED_ORIGINS = ['https://leoflixdjango-production.up.railway.app']
 else:
     SECRET_KEY = 'django-insecure-7bq-f#$o40&b61+reaemvgnko6j95!r9o$x%_5!7$gy8v@w%58'
@@ -31,7 +31,7 @@ else:
 SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin" # para pode rodar os videos do youtube
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["leoflixdjango-production.up.railway.app", "localhost", "127.0 0.1"]
 
