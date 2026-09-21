@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage',
     'django.contrib.staticfiles',
-    'cloudinaty',
+    'cloudinary',
     'filme',
     'crispy_forms',
     'crispy_bootstrap5',
